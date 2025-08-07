@@ -22,12 +22,10 @@ class AuthFrontendController extends Controller
             'password' => $request->password
         ]);
 
-        // dd($response->json());
 
         if ($response->successful()) {
             $data = $response->json();
 
-            // Simpan token dan data user ke session
             Session::put('jwt_token', $data['token']);
             Session::put('user_id', $data['user']['id']);
             Session::put('user_name', $data['user']['name']);
