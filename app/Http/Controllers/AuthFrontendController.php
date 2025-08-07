@@ -29,8 +29,9 @@ class AuthFrontendController extends Controller
 
             // Simpan token dan data user ke session
             Session::put('jwt_token', $data['token']);
-            Session::put('user_role', $data['user']['role']);
+            Session::put('user_id', $data['user']['id']);
             Session::put('user_name', $data['user']['name']);
+            Session::put('user_role', $data['user']['role']);
             Session::put('user_email', $data['user']['email']);
 
             if (strtolower($data['user']['role']) === 'admin') {

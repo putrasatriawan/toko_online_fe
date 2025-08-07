@@ -218,62 +218,28 @@
 
 <div class="search-popup">
     <div class="search-popup-container">
-
         <form role="search"
               method="get"
               class="form-group"
-              action="">
+              action="{{ route('home') }}">
             <input type="search"
                    id="search-form"
                    class="form-control border-0 border-bottom"
                    placeholder="Type and press enter"
-                   value=""
-                   name="s" />
+                   value="{{ request('search') }}"
+                   name="search" />
             <button type="submit"
                     class="search-submit border-0 position-absolute bg-white"
-                    style="top: 15px;right: 15px;"><svg class="search"
+                    style="top: 15px;right: 15px;">
+                <svg class="search"
                      width="24"
                      height="24">
                     <use xlink:href="#search"></use>
-                </svg></button>
+                </svg>
+            </button>
         </form>
-
-        <h5 class="cat-list-title">Browse Categories</h5>
-
-        <ul class="cat-list">
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Jackets">Jackets</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="T-shirts">T-shirts</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Handbags">Handbags</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Accessories">Accessories</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Cosmetics">Cosmetics</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Dresses">Dresses</a>
-            </li>
-            <li class="cat-list-item">
-                <a href="#"
-                   title="Jumpsuits">Jumpsuits</a>
-            </li>
-        </ul>
-
     </div>
 </div>
-
 <div class="offcanvas offcanvas-end"
      data-bs-scroll="true"
      tabindex="-1"
@@ -289,7 +255,7 @@
         <div class="order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-pill">3</span>
+                {{-- <span class="badge bg-primary rounded-pill">0</span> --}}
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -318,9 +284,8 @@
                     <strong>$20</strong>
                 </li>
             </ul>
-
-            <button class="w-100 btn btn-primary btn-lg"
-                    type="submit">Continue to Checkout</button>
+            <button id="btnCheckout"
+                    class="btn btn-success w-100 mt-3">Checkout</button>
         </div>
     </div>
 </div>
@@ -331,7 +296,7 @@
 
             <div class="col-auto">
                 <a class="navbar-brand text-white"
-                   href="index.html">
+                   href="#">
                     <svg width="112"
                          height="45"
                          viewBox="0 0 112 45"
@@ -366,180 +331,7 @@
                     </div>
 
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle active"
-                                   href="#"
-                                   id="dropdownHome"
-                                   data-bs-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">Home</a>
-                                <ul class="dropdown-menu list-unstyled"
-                                    aria-labelledby="dropdownHome">
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Home Layout 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Home Layout 2 </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Home Layout 3 </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Home Layout 4 </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   href="#"
-                                   id="dropdownShop"
-                                   data-bs-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">Shop</a>
-                                <ul class="dropdown-menu list-unstyled"
-                                    aria-labelledby="dropdownShop">
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Sidebar </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Three Column </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Three Column Wide </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Four Column </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Four Column Wide </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Six Column </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Shop Six Column Wide </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Single Product </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Single Product V2 </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   href="#"
-                                   id="dropdownBlog"
-                                   data-bs-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu list-unstyled"
-                                    aria-labelledby="dropdownBlog">
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Blog Classic </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Blog Grid with Sidebar </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Blog Grid Four Column </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Blog No Sidebar </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Blog Right Sidebar </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Single Post </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Single Post No Sidebar </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   href="#"
-                                   id="dropdownPages"
-                                   data-bs-toggle="dropdown"
-                                   aria-haspopup="true"
-                                   aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu list-unstyled"
-                                    aria-labelledby="dropdownPages">
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">About </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Cart </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Checkout </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Coming Soon </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Contact </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Error Page </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">FAQs </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">My Account </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Order Tracking </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html"
-                                           class="dropdown-item item-anchor">Wishlist </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                   href="#">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                   href="#">Contact</a>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -547,16 +339,23 @@
             <div class="col-3 col-lg-auto">
                 <ul class="list-unstyled d-flex m-0">
                     <li class="d-none d-lg-block">
-                        <a href="index.html"
-                           class="text-uppercase mx-3">Wishlist <span class="wishlist-count">(0)</span>
+                        <a href="#"
+                           class="text-uppercase mx-3"
+                           id="btnTracking">
+                            Tracking
                         </a>
                     </li>
+                    @php
+                    $cartCount = session('cart') ? count(session('cart')) : 0;
+                    @endphp
+
                     <li class="d-none d-lg-block">
-                        <a href="index.html"
+                        <a href="#"
                            class="text-uppercase mx-3"
                            data-bs-toggle="offcanvas"
                            data-bs-target="#offcanvasCart"
-                           aria-controls="offcanvasCart">Cart <span class="cart-count">(0)</span>
+                           aria-controls="offcanvasCart">
+                            Cart <span class="cart-count">({{ $cartCount }})</span>
                         </a>
                     </li>
                     <li class="d-lg-none">
@@ -600,3 +399,67 @@
 
     </div>
 </nav>
+<!-- Modal -->
+<div class="modal fade"
+     id="trackingModal"
+     tabindex="-1"
+     aria-labelledby="trackingModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="trackingModalLabel">Tracking Pesanan</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+                <div id="trackingContent">
+                    <p class="text-muted">Memuat data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+    $('#btnTracking').on('click', function (e) {
+      e.preventDefault();
+
+      $('#trackingModal').modal('show');
+
+      $('#trackingContent').html('<p class="text-muted">Memuat data...</p>');
+
+      $.ajax({
+        url: '/tracking-buyer',
+        method: 'GET',
+        success: function (data) {
+          let html = '';
+
+          if (data.length === 0) {
+            html = '<p class="text-muted">Belum ada data pesanan.</p>';
+          } else {
+            html += '<ul class="list-group">';
+            data.forEach(order => {
+              html += `
+                <li class="list-group-item">
+                  <strong>ID Pesanan:</strong> ${order.id} <br>
+                  <strong>Status:</strong> ${order.status} <br>
+                  <strong>Total:</strong> Rp ${parseInt(order.total_price).toLocaleString('id-ID')} <br>
+                  <strong>Tanggal:</strong> ${order.created_at}
+                </li>`;
+            });
+            html += '</ul>';
+          }
+
+          $('#trackingContent').html(html);
+        },
+        error: function () {
+          $('#trackingContent').html('<p class="text-danger">Gagal memuat data pesanan.</p>');
+        }
+      });
+    });
+  });
+</script>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ProductCmsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthFrontendController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\BuyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,17 @@ use App\Http\Controllers\AuthFrontendController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [AuthFrontendController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthFrontendController::class, 'loginProcess'])->name('login.process');
+
 Route::get('/register', [AuthFrontendController::class, 'register'])->name('register');
 Route::post('/register', [AuthFrontendController::class, 'processRegister'])->name('register.process');
 
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/get', [CartController::class, 'get'])->name('cart.get');
+Route::post('/cart/update-qty', [CartController::class, 'updateQty'])->name('cart.updateQty');
+
+Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout.submit');
+
+Route::get('/tracking-buyer', [BuyerController::class, 'trackingBuyer']);
 
 Route::get('/logout', [AuthFrontendController::class, 'logout'])->name('logout');
 

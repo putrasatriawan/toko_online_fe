@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $token = Session::get('jwt_token');
 
@@ -15,12 +16,22 @@ class HomeController extends Controller
             return redirect('/login');
         }
 
+        $search = $request->query('search');
+
+
         $apiUrl = config('app.api_url') . '/products';
 
-        $response = Http::withToken($token)->get($apiUrl);
+        $queryParams = [];
+
+        if ($search) {
+            $queryParams['search'] = $search;
+        }
+
+
+        // dd($queryParams);
+        $response = Http::withToken($token)->get($apiUrl, $queryParams);
 
         $products = $response->successful() ? $response->json() : [];
-        // $products = [];
 
         return view('home', compact('products'));
     }

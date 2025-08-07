@@ -37,11 +37,18 @@
             <div class="navbar-nav w-100">
                 <a href="{{ url('/admin/landing') }}"
                    class="nav-item nav-link {{ Request::is('admin/landing') ? 'active' : '' }}">
-                    <i class="fa fa-tachometer-alt me-2"></i>Dashboard <a href="{{ route('admin.orders.index') }}"
-                       class="nav-item nav-link {{ Request::is('admin/orders*') ? 'active' : '' }}">
-                        <i class="fa fa-chart-line me-2"></i>Transaksi
-                    </a>
+                    <i class="fa fa-tachometer-alt me-2"></i>Dashboard
+                </a>
 
+                <a href="{{ route('admin.orders.index') }}"
+                   class="nav-item nav-link {{ Request::is('admin/orders*') ? 'active' : '' }}">
+                    <i class="fa fa-chart-line me-2"></i>Transaksi
+                </a>
+
+                <a href="{{ route('admin.products.index') }}"
+                   class="nav-item nav-link {{ Request::is('admin/products*') ? 'active' : '' }}">
+                    <i class="fa fa-box me-2"></i>Produk
+                </a>
             </div>
         </nav>
     </div>
